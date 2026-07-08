@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+
     <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -22,16 +15,20 @@
         <h1> To-Do List</h1>
 
         <div class="input-area">
-            <input
-                type="text"
-                id="taskInput"
-                placeholder="Yeni görev ekle..."
-            >
+
+            <input type="text" id="taskInput" placeholder="Yeni görev ekle..." >
 
             <button id="addBtn">Ekle</button>
+
+            <button id="clearAllBtn">🗑️ Tümünü Sil</button>
+            
         </div>
 
         <ul id="taskList"></ul>
+
+        <p id="taskCount">Toplam Görev: 0</p>
+
+        <p id="completedCount">Tamamlanan: 0</p>
 
     </div>
 

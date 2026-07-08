@@ -9,8 +9,9 @@ body{
     background-color: #f4f4f4;
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding-top: 60px;
 }
 
 .container{
@@ -84,4 +85,45 @@ li{
 
 .delete-btn:hover{
     background: darkred;
+}
+
+li button{
+
+    margin-left:8px;
+
+}
+
+li span{
+
+    flex:1;
+
+}
+.edit-btn{
+    background:#ffc107;
+    color:black;
+    border:none;
+    padding:5px 10px;
+    border-radius:5px;
+    cursor:pointer;
+    margin-right:5px;
+}
+
+.edit-btn:hover{
+    background:#e0a800;
+}
+
+#clearAllBtn{
+    width:100%;
+    margin-top:10px;
+    padding:10px;
+    background:#dc3545;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+#clearAllBtn:hover{
+    background:#b02a37;
 }
