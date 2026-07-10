@@ -1,11 +1,11 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, sans-serif;
 }
 
-body{
+body {
     background-color: #f5f5f8;
     display: flex;
     justify-content: center;
@@ -14,7 +14,7 @@ body{
     padding-top: 60px;
 }
 
-.container{
+.container {
     background: white;
     width: 700px;
     padding: 20px;
@@ -22,46 +22,45 @@ body{
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
 
-h1{
+h1 {
     text-align: center;
     margin-bottom: 20px;
     color: #333;
 }
 
-.input-area{
+.input-area {
     display: flex;
     gap: 10px;
     margin-bottom: 20px;
 }
 
-#taskInput{
-    width: 1500px;
+#taskInput {
+    width: 100%; /* Taşmaları önlemek için %100 yapıldı */
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
 
-#addBtn{
-    width: 96%;
+#addBtn {
+    width: 100px;
     height: 50px;
     padding: 10px;
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    margin-top: 10px;
     background-color: #0056b3;
     color: white;
 }
 
-#addBtn:hover{
+#addBtn:hover {
     background-color: #0f457f;
 }
 
-ul{
+ul {
     list-style: none;
 }
 
-li{
+li {
     background: #e9e9e9;
     padding: 10px;
     margin-bottom: 10px;
@@ -72,12 +71,12 @@ li{
     cursor: pointer;
 }
 
-.completed{
+.completed {
     text-decoration: line-through;
     color: gray;
 }
 
-.delete-btn{
+.delete-btn {
     background: red;
     color: white;
     border: none;
@@ -86,53 +85,49 @@ li{
     cursor: pointer;
 }
 
-.delete-btn:hover{
+.delete-btn:hover {
     background: darkred;
 }
 
-li button{
-
-    margin-left:8px;
-
+li button {
+    margin-left: 8px;
 }
 
-li span{
-
-    flex:1;
-
-}
-.edit-btn{
-    background:#ffc107;
-    color:black;
-    border:none;
-    padding:5px 10px;
-    border-radius:5px;
-    cursor:pointer;
-    margin-right:5px;
+li span {
+    flex: 1;
 }
 
-.edit-btn:hover{
-    background:#e0a800;
+.edit-btn {
+    background: #ffc107;
+    color: black;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 5px;
 }
 
-#clearAllBtn{
-    background:#a00a19;
-    color:white;
-    transition:.3s;
-    width: 100%;
+.edit-btn:hover {
+    background: #e0a800;
+}
+
+#clearAllBtn {
+    background: #a00a19;
+    color: white;
+    transition: .3s;
+    width: 120px;
     padding: 10px;
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    margin-top: 10px;
     height: 50px;
 }
 
-#clearAllBtn:hover{
-    background:#5c0710;
+#clearAllBtn:hover {
+    background: #5c0710;
 }
 
-#themeBtn{
+#themeBtn {
     width: 160px;
     padding: 10px;
     margin-bottom: 15px;
@@ -144,51 +139,72 @@ li span{
     transition: 0.3s;
 }
 
-#themeBtn:hover{
+#themeBtn:hover {
     background-color: #555;
 }
 
-body.dark{
+/* YENİ: İçe/Dışa Aktar Butonları */
+.actions-area {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+.actions-area button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #17a2b8;
+    color: white;
+    transition: 0.3s;
+}
+.actions-area button:hover {
+    background-color: #117a8b;
+}
+
+body.dark {
     background-color: #1f2937;
     color: white;
 }
 
-body.dark .container{
+body.dark .container {
     background-color: #374151;
 }
 
-body.dark input{
+body.dark input {
     background-color: #4b5563;
     color: white;
     border: 1px solid #666;
 }
 
-body.dark li{
+body.dark li {
     background-color: #4b5563;
     color: white;
 }
 
-body.dark button{
+body.dark button {
     color: white;
 }
-body.dark h1{
+body.dark h1 {
     color: white;
 }
-body.dark #themeBtn{
+body.dark #themeBtn {
     background-color: #f5f5f5;
     color: #222;
 }
 
-body.dark #themeBtn:hover{
+body.dark #themeBtn:hover {
     background-color: #dddddd;
 }
-.filter-area{
+
+.filter-area {
     display: flex;
     justify-content: center;
     gap: 10px;
     margin-bottom: 20px;
 }
-.filter-area button{
+.filter-area button {
     padding: 10px 15px;
     border: none;
     border-radius: 8px;
@@ -197,60 +213,45 @@ body.dark #themeBtn:hover{
     color: white;
     transition: .3s;
 }
-.filter-area button:hover{
+.filter-area button:hover {
     background: #683e71;
 }
-li small{
+
+li small {
     color: gray;
     font-size: 12px;
 }
-body.dark li small{
+body.dark li small {
     color: #d1d5db;
 }
-.pin-btn{
 
-    background:#2a9151;
-
-    color:white;
-
-    border:none;
-
-    padding:5px 10px;
-
-    border-radius:5px;
-
-    cursor:pointer;
-
-    margin-right:5px;
-
+.pin-btn {
+    background: #2a9151;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 5px;
 }
 
-.pin-btn:hover{
-
-    background:#117a8b;
-
+.pin-btn:hover {
+    background: #117a8b;
 }
-#sortSelect{
 
-    padding:10px;
-
-    border-radius:8px;
-
-    border:1px solid #ccc;
-
-    cursor:pointer;
-
+#sortSelect {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    cursor: pointer;
 }
-body.dark #sortSelect{
-
-    background:#4b5563;
-
-    color:white;
-
-    border:none;
-
+body.dark #sortSelect {
+    background: #4b5563;
+    color: white;
+    border: none;
 }
-#categorySelect{
+
+#categorySelect, #prioritySelect {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
@@ -259,12 +260,13 @@ body.dark #sortSelect{
     font-size: 15px;
 }
 
-body.dark #categorySelect{
+body.dark #categorySelect, body.dark #prioritySelect {
     background: #4b5563;
     color: white;
     border: none;
 }
-.category{
+
+.category {
     display: inline-block;
     margin-top: 5px;
     padding: 3px 8px;
@@ -274,29 +276,40 @@ body.dark #categorySelect{
     font-size: 12px;
     font-weight: bold;
 }
-#dueDate{
-    width:100%;
-    padding:10px;
-    margin-bottom:15px;
-    border-radius:8px;
-    border:1px solid #ccc;
+
+/* YENİ: Öncelik Renkleri */
+.priority {
+    display: inline-block;
+    margin-top: 5px;
+    padding: 3px 8px;
+    border-radius: 12px;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    margin-left: 5px;
 }
-body.dark #dueDate{
-    background:#4b5563;
-    color:white;
-    border:none;
+.priority-düsük { background-color: #28a745; } /* Yeşil */
+.priority-orta { background-color: #ffc107; color: black; } /* Sarı */
+.priority-yüksek { background-color: #dc3545; } /* Kırmızı */
+
+
+#dueDate {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
 }
-.overdue{
-
-    background:#ffcccc !important;
-
-    border-left:6px solid red;
-
+body.dark #dueDate {
+    background: #4b5563;
+    color: white;
+    border: none;
 }
-body.dark .overdue{
-
-    background:#7f1d1d !important;
-
-    border-left:6px solid #ef4444;
-
+.overdue {
+    background: #ffcccc !important;
+    border-left: 6px solid red;
+}
+body.dark .overdue {
+    background: #7f1d1d !important;
+    border-left: 6px solid #ef4444;
 }

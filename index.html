@@ -1,11 +1,10 @@
 
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do List</title>
-
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
@@ -15,15 +14,17 @@
         <h1> To-Do List</h1>
 
         <button id="themeBtn">🌙 Dark Mode</button>
+        
+        <div class="actions-area">
+            <button id="exportBtn">⬇️ JSON Dışa Aktar</button>
+            <button id="importBtn">⬆️ JSON İçe Aktar</button>
+            <input type="file" id="importFile" accept=".json" style="display: none;">
+        </div>
 
         <div class="input-area">
-
             <input type="text" id="taskInput" placeholder="Yeni görev ekle..." >
-
             <button id="addBtn">Ekle</button>
-
             <button id="clearAllBtn">🗑️ Tümünü Sil</button>
-            
         </div>
 
         <select id="categorySelect">
@@ -31,34 +32,30 @@
           <option value="İş">💼 İş</option>
           <option value="Kişisel">🏠 Kişisel</option>
         </select>
+        
+        <select id="prioritySelect">
+            <option value="Düşük">🟢 Düşük Öncelik</option>
+            <option value="Orta">🟡 Orta Öncelik</option>
+            <option value="Yüksek">🔴 Yüksek Öncelik</option>
+        </select>
 
         <input type="date" id="dueDate">
 
         <div class="filter-area">
-
             <button id="allBtn">Hepsi</button>
-
             <button id="completedBtn">Tamamlananlar</button>
-
             <button id="activeBtn">Yapılacaklar</button>
-
             <select id="sortSelect">
-
                <option value="new">Yeni → Eski</option>
-
                <option value="old">Eski → Yeni</option>
-
                <option value="az">A → Z</option>
-
                <option value="za">Z → A</option>
-
             </select>
         </div>
 
         <ul id="taskList"></ul>
 
         <p id="taskCount">Toplam Görev: 0</p>
-
         <p id="completedCount">Tamamlanan: 0</p>
 
     </div>
