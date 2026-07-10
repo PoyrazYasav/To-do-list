@@ -6,7 +6,7 @@
 }
 
 body{
-    background-color: #f4f4f4;
+    background-color: #f5f5f8;
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -16,7 +16,7 @@ body{
 
 .container{
     background: white;
-    width: 400px;
+    width: 700px;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
@@ -35,23 +35,26 @@ h1{
 }
 
 #taskInput{
-    flex: 1;
+    width: 1500px;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
 
 #addBtn{
-    padding: 10px 15px;
-    background-color: #007bff;
-    color: white;
+    width: 96%;
+    height: 50px;
+    padding: 10px;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
+    margin-top: 10px;
+    background-color: #0056b3;
+    color: white;
 }
 
 #addBtn:hover{
-    background-color: #0056b3;
+    background-color: #0f457f;
 }
 
 ul{
@@ -113,17 +116,137 @@ li span{
 }
 
 #clearAllBtn{
-    width:100%;
-    margin-top:10px;
-    padding:10px;
-    background:#dc3545;
+    background:#a00a19;
     color:white;
-    border:none;
-    border-radius:8px;
-    cursor:pointer;
     transition:.3s;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+    height: 50px;
 }
 
 #clearAllBtn:hover{
-    background:#b02a37;
+    background:#5c0710;
+}
+
+#themeBtn{
+    width: 160px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#themeBtn:hover{
+    background-color: #555;
+}
+
+body.dark{
+    background-color: #1f2937;
+    color: white;
+}
+
+body.dark .container{
+    background-color: #374151;
+}
+
+body.dark input{
+    background-color: #4b5563;
+    color: white;
+    border: 1px solid #666;
+}
+
+body.dark li{
+    background-color: #4b5563;
+    color: white;
+}
+
+body.dark button{
+    color: white;
+}
+body.dark h1{
+    color: white;
+}
+body.dark #themeBtn{
+    background-color: #f5f5f5;
+    color: #222;
+}
+
+body.dark #themeBtn:hover{
+    background-color: #dddddd;
+}
+.filter-area{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+.filter-area button{
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background: #683e71;
+    color: white;
+    transition: .3s;
+}
+.filter-area button:hover{
+    background: #683e71;
+}
+li small{
+    color: gray;
+    font-size: 12px;
+}
+body.dark li small{
+    color: #d1d5db;
+}
+.pin-btn{
+
+    background:#2a9151;
+
+    color:white;
+
+    border:none;
+
+    padding:5px 10px;
+
+    border-radius:5px;
+
+    cursor:pointer;
+
+    margin-right:5px;
+
+}
+
+.pin-btn:hover{
+
+    background:#117a8b;
+
+}
+#sortSelect{
+
+    padding:10px;
+
+    border-radius:8px;
+
+    border:1px solid #ccc;
+
+    cursor:pointer;
+
+}
+body.dark #sortSelect{
+
+    background:#4b5563;
+
+    color:white;
+
+    border:none;
+
 }

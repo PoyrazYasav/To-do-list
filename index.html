@@ -14,6 +14,8 @@
 
         <h1> To-Do List</h1>
 
+        <button id="themeBtn">🌙 Dark Mode</button>
+
         <div class="input-area">
 
             <input type="text" id="taskInput" placeholder="Yeni görev ekle..." >
@@ -22,6 +24,27 @@
 
             <button id="clearAllBtn">🗑️ Tümünü Sil</button>
             
+        </div>
+
+        <div class="filter-area">
+
+            <button id="allBtn">Hepsi</button>
+
+            <button id="completedBtn">Tamamlananlar</button>
+
+            <button id="activeBtn">Yapılacaklar</button>
+
+            <select id="sortSelect">
+                
+               <option value="new">Yeni → Eski</option>
+
+               <option value="old">Eski → Yeni</option>
+
+               <option value="az">A → Z</option>
+
+               <option value="za">Z → A</option>
+
+            </select>
         </div>
 
         <ul id="taskList"></ul>

@@ -2,6 +2,14 @@ const input = document.getElementById("taskInput");
 const button = document.getElementById("addBtn");
 const list = document.getElementById("taskList");
 const clearAllBtn = document.getElementById("clearAllBtn");
+const themeBtn = document.getElementById("themeBtn");
+const allBtn = document.getElementById("allBtn");
+const completedBtn = document.getElementById("completedBtn");
+const activeBtn = document.getElementById("activeBtn");
+const sortSelect = document.getElementById("sortSelect");
+
+let currentFilter = "all";
+
 
 let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
@@ -21,7 +29,18 @@ button.addEventListener("click", function(){
 
         text: input.value,
 
-        completed: false
+        completed: false,
+
+        pinned: false,
+
+        date: new Date().toLocaleString("tr-TR",{
+            day: "2-digit",
+            month:"2-digit",
+            year:"numeric",
+            hour:"2-digit",
+            minute:"2-digit"
+        }),
+        createdAt: Date.now()
 
     });
 
@@ -49,7 +68,44 @@ function showTasks(){
 
     }
 
+    tasks.sort((a,b)=>{
+
+    if(a.pinned !== b.pinned){
+
+        return b.pinned-a.pinned;
+
+    }
+
+    switch(sortSelect.value){
+
+        case "az":
+
+            return a.text.localeCompare(b.text);
+
+        case "za":
+
+            return b.text.localeCompare(a.text);
+
+        case "old":
+
+            return a.createdAt - b.createdAt;
+
+        default:
+
+            return b.createdAt - a.createdAt;
+
+    }
+
+});
+
     tasks.forEach((task,index)=>{
+
+        if(currentFilter === "completed" && ! task.completed){
+            return;
+        }
+        if(currentFilter === "active" && task.completed){
+            return;
+        }
 
         const li = document.createElement("li");
 
@@ -58,11 +114,30 @@ function showTasks(){
         }
 
         const span = document.createElement("span");
-        span.textContent = task.text;
+        span.innerHTML = `
+            <strong>${task.text}</strong><br>
+            <small>${task.date}</small>
+        `;
 
         span.onclick = function(){
 
             task.completed = !task.completed;
+
+            saveTasks();
+
+            showTasks();
+
+        };
+
+        const pin = document.createElement("button");
+
+            pin.textContent = task.pinned ? "📌" : "📍";
+
+            pin.className = "pin-btn";
+
+            pin.onclick = function(){
+
+            task.pinned = !task.pinned;
 
             saveTasks();
 
@@ -110,10 +185,12 @@ function showTasks(){
 
         li.appendChild(span);
 
+        li.appendChild(pin);
+
         li.appendChild(edit);
 
         li.appendChild(del);
-
+        
         list.appendChild(li);
 
     });
@@ -151,4 +228,36 @@ clearAllBtn.addEventListener("click", function(){
         saveTasks();
         showTasks();
     }
+});
+
+themeBtn.addEventListener("click", function(){
+
+    document.body.classList.toggle("dark");
+
+    if(document.body.classList.contains("dark")){
+        themeBtn.textContent = "☀️ Light Mode";
+    }else{
+        themeBtn.textContent = "🌙 Dark Mode";
+    }
+
+});
+
+allBtn.addEventListener("click",function(){
+    currentFilter="all";
+    showTasks();
+});
+
+completedBtn.addEventListener("click",function(){
+    currentFilter="completed";
+    showTasks();
+});
+
+activeBtn.addEventListener("click",function(){
+    currentFilter="active";
+    showTasks();
+});
+sortSelect.addEventListener("change",function(){
+
+    showTasks();
+
 });
