@@ -7,8 +7,12 @@ const allBtn = document.getElementById("allBtn");
 const completedBtn = document.getElementById("completedBtn");
 const activeBtn = document.getElementById("activeBtn");
 const sortSelect = document.getElementById("sortSelect");
+const categorySelect = document.getElementById("categorySelect");
+const dueDate = document.getElementById("dueDate");
 
 let currentFilter = "all";
+
+let draggedIndex = null;
 
 
 let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
@@ -40,6 +44,10 @@ button.addEventListener("click", function(){
             hour:"2-digit",
             minute:"2-digit"
         }),
+        category: categorySelect.value,
+
+        dueDate: dueDate.value,
+
         createdAt: Date.now()
 
     });
@@ -109,15 +117,37 @@ function showTasks(){
 
         const li = document.createElement("li");
 
+        li.draggable = true;
+
+        if (task.dueDate) {
+
+    const today = new Date();
+
+    const due = new Date(task.dueDate);
+
+    today.setHours(0, 0, 0, 0);
+
+    due.setHours(0, 0, 0, 0);
+
+    if (due < today && !task.completed) {
+
+        li.classList.add("overdue");
+
+    }
+
+}
+
         if(task.completed){
             li.classList.add("completed");
         }
 
         const span = document.createElement("span");
         span.innerHTML = `
-            <strong>${task.text}</strong><br>
-            <small>${task.date}</small>
-        `;
+    <strong>${task.text}</strong><br>
+    <small>Eklenme: ${task.date}</small><br>
+    <small>Son Tarih: ${task.dueDate || "Belirtilmedi"}</small><br>
+    <small class="category">${task.category}</small>
+    `;
 
         span.onclick = function(){
 
@@ -190,6 +220,10 @@ function showTasks(){
         li.appendChild(edit);
 
         li.appendChild(del);
+
+        li.addEventListener("dragstart", function () {
+    draggedIndex = index;
+});
         
         list.appendChild(li);
 

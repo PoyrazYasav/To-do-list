@@ -250,3 +250,53 @@ body.dark #sortSelect{
     border:none;
 
 }
+#categorySelect{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+}
+
+body.dark #categorySelect{
+    background: #4b5563;
+    color: white;
+    border: none;
+}
+.category{
+    display: inline-block;
+    margin-top: 5px;
+    padding: 3px 8px;
+    border-radius: 12px;
+    background: #683e71;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+}
+#dueDate{
+    width:100%;
+    padding:10px;
+    margin-bottom:15px;
+    border-radius:8px;
+    border:1px solid #ccc;
+}
+body.dark #dueDate{
+    background:#4b5563;
+    color:white;
+    border:none;
+}
+.overdue{
+
+    background:#ffcccc !important;
+
+    border-left:6px solid red;
+
+}
+body.dark .overdue{
+
+    background:#7f1d1d !important;
+
+    border-left:6px solid #ef4444;
+
+}
